@@ -971,6 +971,197 @@
             .cta-section h2 { font-size: 1.5rem; }
         }
 
+        /* ========== PRICING SECTION ========== */
+        .pricing-section {
+            margin-top: 3rem;
+            padding: 3rem 0 1rem;
+        }
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .pricing-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark);
+        }
+        .pricing-header h2 span { color: var(--primary); }
+        .pricing-header p {
+            color: var(--dark-300);
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            align-items: stretch;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .pricing-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .pricing-card.featured::before {
+            content: 'Mais Popular';
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .pricing-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+        .pricing-badge.free { background: var(--gray-200); color: var(--dark-500); }
+        .pricing-badge.growth { background: var(--primary-light); color: var(--primary-dark); }
+        .pricing-badge.starter { background: var(--accent-light); color: var(--accent); }
+        .pricing-badge.enterprise { background: #F3E8FF; color: #7C3AED; }
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+        .pricing-audience {
+            font-size: 0.85rem;
+            color: var(--dark-300);
+            margin-bottom: 1rem;
+            min-height: 1.5rem;
+        }
+        .pricing-price {
+            margin-bottom: 1.25rem;
+        }
+        .pricing-price .amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+        .pricing-price .period {
+            font-size: 0.85rem;
+            color: var(--dark-300);
+        }
+        .pricing-price .original {
+            font-size: 0.85rem;
+            color: var(--dark-300);
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+        }
+        .pricing-price .consult {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .pricing-features {
+            list-style: none;
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+        .pricing-features li {
+            font-size: 0.88rem;
+            color: var(--dark-500);
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.4;
+        }
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .pricing-cta {
+            display: block;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .pricing-cta.outline {
+            border: 2px solid var(--gray-300);
+            color: var(--dark-500);
+            background: transparent;
+        }
+        .pricing-cta.outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .pricing-cta.primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        .pricing-cta.primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        .pricing-cta.accent {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+        .pricing-cta.accent:hover {
+            background: #155a8a;
+            border-color: #155a8a;
+        }
+        .pricing-cta.dark {
+            background: var(--dark);
+            color: white;
+            border: 2px solid var(--dark);
+        }
+        .pricing-cta.dark:hover {
+            background: var(--dark-700);
+            border-color: var(--dark-700);
+        }
+        .pricing-trial {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--dark-300);
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 1100px) {
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-header h2 { font-size: 1.5rem; }
+        }
+
         /* ========== ANIMATIONS ========== */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -1001,10 +1192,11 @@
         </div>
     </div>
     <div class="navbar-right">
-        <button class="btn btn-outline" onclick="scrollToCTA()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <a href="#planos" class="btn btn-outline" style="text-decoration:none;">Planos</a>
+        <a href="#pautas-abertas" class="btn btn-outline" style="text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
             Cadastrar Pauta
-        </button>
+        </a>
         <button class="btn btn-primary">Sou Especialista</button>
         <div class="avatar" title="Minha Conta">A</div>
     </div>
@@ -1097,6 +1289,14 @@
         </div>
 
         <div class="sidebar-section">
+            <div class="sidebar-title">Assinaturas</div>
+            <a href="#planos" class="sidebar-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 00-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
+                Planos e Preços
+            </a>
+        </div>
+
+        <div class="sidebar-section">
             <div class="sidebar-title">Bancos de Dados</div>
             <a href="#banco-veiculos" class="sidebar-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
@@ -1113,7 +1313,7 @@
     <div class="content-area">
 
         <!-- HERO -->
-        <section class="hero">
+        <section class="hero" id="pautas-abertas">
             <div class="hero-icon">
                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
             </div>
@@ -1204,6 +1404,97 @@
                     Criar Minha Conta Grátis
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
+            </section>
+
+            <!-- PLANOS DE ASSINATURA -->
+            <section class="pricing-section" id="planos">
+                <div class="pricing-header">
+                    <h2>Escolha o plano ideal para sua <span>visibilidade</span></h2>
+                    <p>Profissionais, agências e departamentos de comunicação — todos encontram seu espaço na imprensa.</p>
+                </div>
+                <div class="pricing-grid">
+
+                    <!-- PLANO DESCOBERTA -->
+                    <div class="pricing-card">
+                        <span class="pricing-badge free">Gratuito</span>
+                        <h3>Descoberta</h3>
+                        <p class="pricing-audience">Para jornalistas, especialistas e profissionais liberais</p>
+                        <div class="pricing-price">
+                            <span class="amount">R$ 0</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Acesso à plataforma</li>
+                            <li>Até 3 pautas por mês</li>
+                            <li>1 auditoria de texto e revisão com IA</li>
+                            <li>Suporte básico</li>
+                        </ul>
+                        <a href="#" class="pricing-cta outline">Começar Grátis</a>
+                    </div>
+
+                    <!-- PLANO CRESCIMENTO -->
+                    <div class="pricing-card featured">
+                        <span class="pricing-badge growth">Popular</span>
+                        <h3>Crescimento</h3>
+                        <p class="pricing-audience">Para profissionais que buscam cobertura constante</p>
+                        <div class="pricing-price">
+                            <span class="amount">R$ 299</span>
+                            <span class="period">/mês</span>
+                            <span class="original">R$ 399</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Acesso ilimitado à plataforma</li>
+                            <li>Cadastro ilimitado de pautas</li>
+                            <li>Guias e materiais educacionais para releases e matérias</li>
+                            <li>Roteiro de conteúdo com pontuação de citabilidade</li>
+                            <li>Auditoria de texto e revisão com IA</li>
+                            <li>Recomendações de pautas e visibilidade de demandas dos veículos</li>
+                        </ul>
+                        <a href="#" class="pricing-cta primary">Assinar Agora</a>
+                    </div>
+
+                    <!-- PLANO STARTER -->
+                    <div class="pricing-card">
+                        <span class="pricing-badge starter">Agências</span>
+                        <h3>Starter</h3>
+                        <p class="pricing-audience">Ideal para agências e assessorias pequenas</p>
+                        <div class="pricing-price">
+                            <span class="amount">R$ 10.000</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Até 20 ações de conteúdo por mês (releases, matérias, e-books, posts)</li>
+                            <li>Até 20 solicitações de conteúdo (pautas quentes e frias)</li>
+                            <li>Chat com profissional responsável pela pauta</li>
+                            <li>Acesso ilimitado à plataforma</li>
+                            <li>Auditoria de texto e revisão com IA</li>
+                        </ul>
+                        <a href="#" class="pricing-cta accent">Iniciar Teste Grátis</a>
+                        <p class="pricing-trial">1º mês gratuito</p>
+                    </div>
+
+                    <!-- PLANO ENTERPRISE -->
+                    <div class="pricing-card">
+                        <span class="pricing-badge enterprise">Corporativo</span>
+                        <h3>Enterprise</h3>
+                        <p class="pricing-audience">Para grandes agências e departamentos de comunicação</p>
+                        <div class="pricing-price">
+                            <span class="consult">Sob consulta</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Tudo do Plano Crescimento</li>
+                            <li>Ações de conteúdo e solicitações ilimitadas</li>
+                            <li>Auditoria especializada com IA</li>
+                            <li>Monitoramento de citações competitivas</li>
+                            <li>Sessões de gestão e apoio prioritário</li>
+                            <li>Contato ilimitado com assessorias de imprensa</li>
+                            <li>Chat dedicado com profissional responsável</li>
+                            <li>Suporte prioritário</li>
+                        </ul>
+                        <a href="#" class="pricing-cta dark">Falar com Consultor</a>
+                    </div>
+
+                </div>
             </section>
 
             <!-- BANCO DE VEÍCULOS DA IMPRENSA -->
@@ -1381,210 +1672,4 @@ const assessorias = [
     { nome: "Ketchum Brasil", porte: "Grande", sede: "São Paulo", clientes: "Alimentos, healthcare, tech" },
     { nome: "DFREIRE Comunicação", porte: "Grande", sede: "São Paulo", clientes: "Finanças, investimentos" },
     { nome: "InPress Porter Novelli", porte: "Grande", sede: "São Paulo", clientes: "Consumo, tech, saúde" },
-    { nome: "Burson Brasil", porte: "Grande", sede: "São Paulo", clientes: "Corporativo, governo" },
-    { nome: "CDN Comunicação", porte: "Grande", sede: "São Paulo", clientes: "Energia, infraestrutura" },
-    { nome: "S2 Publicom", porte: "Grande", sede: "São Paulo", clientes: "Agro, mineração, indústria" },
-    { nome: "Weber Shandwick Brasil", porte: "Grande", sede: "São Paulo", clientes: "Consumo, tech" },
-    { nome: "Approach Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Tech, finanças, startups" },
-    { nome: "Sing Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Finanças, investimentos" },
-    { nome: "Naves Coelho", porte: "Médio", sede: "São Paulo", clientes: "Real estate, varejo" },
-    { nome: "Riot (ex-MSLGROUP)", porte: "Médio", sede: "São Paulo", clientes: "Lifestyle, consumo" },
-    { nome: "Conteúdo Comunicação", porte: "Médio", sede: "Belo Horizonte", clientes: "Agro, mineração, indústria" },
-    { nome: "RPM Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Finanças, seguros, saúde" },
-    { nome: "JeffreyGroup", porte: "Médio", sede: "São Paulo", clientes: "Tech, multinacionais LATAM" },
-    { nome: "Textual Comunicação", porte: "Médio", sede: "Porto Alegre", clientes: "Indústria, cooperativas" },
-    { nome: "Binder Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Saúde, pharma" },
-    { nome: "Motim (ex-MOTIM)", porte: "Médio", sede: "São Paulo", clientes: "Startups, tech, venture capital" },
-    { nome: "BPool / Rede Assessorias", porte: "Plataforma", sede: "Nacional", clientes: "Marketplace de assessorias" },
-    { nome: "Agência Guru", porte: "Pequeno", sede: "São Paulo", clientes: "E-commerce, SaaS" },
-    { nome: "Race Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Tech, finanças, saúde" },
-    { nome: "Loures Comunicação", porte: "Grande", sede: "São Paulo/Brasília", clientes: "Governo, institucional" },
-    { nome: "LVBA Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Finanças, investimentos" },
-    { nome: "Trama Comunicação", porte: "Médio", sede: "São Paulo/Curitiba", clientes: "Varejo, educação, tech" },
-    { nome: "Giusti Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Jurídico, corporativo" },
-    { nome: "Pimenta Comunicação", porte: "Médio", sede: "São Paulo", clientes: "Alimentos, agro, consumo" },
-    { nome: "ADS Comunicação Corporativa", porte: "Médio", sede: "São Paulo", clientes: "Mercado imobiliário, energia" },
-];
-
-// ============================================================
-// BANCO DE DADOS — PAUTAS (PERGUNTAS)
-// ============================================================
-const pautas = [
-    {
-        titulo: "Impacto da nova taxa Selic nos investimentos de renda fixa",
-        descricao: "Procuro economistas e planejadores financeiros para comentar como a nova decisão do Copom afeta a rentabilidade de CDBs, Tesouro Direto e fundos DI. Quero entender cenários para o segundo semestre e recomendações para o investidor pessoa física.",
-        veiculo: "Valor Econômico",
-        da: 89,
-        prazo: "2d 5h",
-        prazoClass: "urgent",
-        categoria: "Economia",
-        atribuicao: "Citação + Link"
-    },
-    {
-        titulo: "IA generativa na redação: como os veículos brasileiros estão usando",
-        descricao: "Estou escrevendo uma reportagem sobre o uso de inteligência artificial generativa em redações brasileiras. Busco editores, diretores de conteúdo e CTOs de veículos de mídia para entrevista sobre adoção, desafios éticos e impacto na produtividade editorial.",
-        veiculo: "Folha de S.Paulo",
-        da: 93,
-        prazo: "5d 3h",
-        prazoClass: "soon",
-        categoria: "Tecnologia",
-        atribuicao: "Citação"
-    },
-    {
-        titulo: "Burnout entre profissionais de saúde pós-pandemia",
-        descricao: "Matéria sobre saúde mental dos profissionais de saúde. Procuro psiquiatras, psicólogos organizacionais e gestores hospitalares que possam falar sobre os números atuais de burnout, afastamentos e estratégias de prevenção nas instituições.",
-        veiculo: "G1",
-        da: 95,
-        prazo: "3d 8h",
-        prazoClass: "soon",
-        categoria: "Saúde",
-        atribuicao: "Citação + Foto"
-    },
-    {
-        titulo: "Reforma tributária: impactos para o agronegócio",
-        descricao: "Preparando reportagem especial sobre como a regulamentação da reforma tributária vai afetar o setor agropecuário. Busco tributaristas especializados em agro, líderes de associações rurais e economistas agrícolas.",
-        veiculo: "Globo Rural",
-        da: 79,
-        prazo: "7d 12h",
-        prazoClass: "normal",
-        categoria: "Agro",
-        atribuicao: "Citação + Link"
-    },
-    {
-        titulo: "Startups brasileiras que estão atraindo investimento estrangeiro em 2026",
-        descricao: "Série sobre o ecossistema de venture capital no Brasil. Procuro fundadores que captaram rodadas com investidores internacionais, VCs com tese no Brasil e analistas do setor para mapear tendências e setores mais aquecidos.",
-        veiculo: "Exame",
-        da: 85,
-        prazo: "10d 6h",
-        prazoClass: "normal",
-        categoria: "Startups",
-        atribuicao: "Citação + Link + Foto"
-    },
-    {
-        titulo: "Nova lei de proteção de dados e seus impactos nas empresas",
-        descricao: "Artigo sobre as recentes mudanças regulatórias da LGPD e as penalizações aplicadas pela ANPD. Busco advogados especializados em proteção de dados, DPOs e consultores de compliance digital para entrevista.",
-        veiculo: "Consultor Jurídico (ConJur)",
-        da: 76,
-        prazo: "4d 10h",
-        prazoClass: "soon",
-        categoria: "Direito",
-        atribuicao: "Citação + Bio"
-    },
-    {
-        titulo: "Mercado imobiliário de luxo em São Paulo bate recorde",
-        descricao: "Reportagem sobre o aquecimento do mercado de imóveis de alto padrão na capital paulista. Procuro corretores especializados em imóveis de luxo, economistas do setor e arquitetos que trabalham com projetos acima de R$ 5 milhões.",
-        veiculo: "Estadão",
-        da: 91,
-        prazo: "6d 4h",
-        prazoClass: "normal",
-        categoria: "Imobiliário",
-        atribuicao: "Citação"
-    },
-    {
-        titulo: "Desmatamento na Amazônia: dados de 2026 e perspectivas",
-        descricao: "Matéria investigativa sobre os números mais recentes de desmatamento na Amazônia Legal. Busco pesquisadores do INPE, biólogos, especialistas em sensoriamento remoto e ativistas ambientais para análise dos dados.",
-        veiculo: "O Globo",
-        da: 92,
-        prazo: "8d 7h",
-        prazoClass: "normal",
-        categoria: "Sustentabilidade",
-        atribuicao: "Citação + Link"
-    },
-    {
-        titulo: "Educação híbrida: o que deu certo e o que fracassou",
-        descricao: "Estou produzindo um especial sobre educação pós-pandemia. Preciso de diretores de escola, pesquisadores em educação e EdTechs para falar sobre resultados concretos do modelo híbrido implementado nos últimos anos.",
-        veiculo: "Nexo Jornal",
-        da: 77,
-        prazo: "12d 9h",
-        prazoClass: "normal",
-        categoria: "Educação",
-        atribuicao: "Citação + Link + Bio"
-    },
-    {
-        titulo: "Eleições municipais: análise das campanhas digitais mais eficazes",
-        descricao: "Reportagem sobre marketing político digital nas eleições municipais. Procuro cientistas políticos, especialistas em marketing digital e pesquisadores que analisaram as estratégias de campanha nas redes sociais dos candidatos.",
-        veiculo: "Poder360",
-        da: 78,
-        prazo: "1d 3h",
-        prazoClass: "urgent",
-        categoria: "Política",
-        atribuicao: "Citação"
-    },
-    {
-        titulo: "Crise na pecuária: como o produtor está se adaptando",
-        descricao: "Série sobre os desafios do setor pecuário brasileiro frente às exigências de sustentabilidade e rastreabilidade. Busco pecuaristas, zootecnistas e pesquisadores da Embrapa para entrevista sobre inovação no campo.",
-        veiculo: "Canal Rural",
-        da: 72,
-        prazo: "9d 5h",
-        prazoClass: "normal",
-        categoria: "Agro",
-        atribuicao: "Citação + Foto"
-    },
-    {
-        titulo: "Fintechs de crédito: como estão desafiando os bancos tradicionais",
-        descricao: "Matéria sobre a nova geração de fintechs de crédito pessoal e empresarial. Procuro CEOs de fintechs, analistas do Banco Central e especialistas em regulação financeira para mapear o cenário competitivo.",
-        veiculo: "InfoMoney",
-        da: 82,
-        prazo: "5d 8h",
-        prazoClass: "soon",
-        categoria: "Economia",
-        atribuicao: "Citação + Link"
-    },
-    {
-        titulo: "O futuro do trabalho remoto nas grandes empresas brasileiras",
-        descricao: "Pesquisa sobre a política de trabalho remoto e híbrido das 100 maiores empresas do Brasil. Busco diretores de RH, especialistas em futuro do trabalho e pesquisadores organizacionais para entender as tendências.",
-        veiculo: "Época Negócios",
-        da: 81,
-        prazo: "15d 2h",
-        prazoClass: "normal",
-        categoria: "Economia",
-        atribuicao: "Citação + Link + Bio"
-    },
-    {
-        titulo: "Cybersecurity: ataques a empresas brasileiras crescem 40%",
-        descricao: "Reportagem sobre o aumento de ciberataques a empresas brasileiras. Procuro CISOs, especialistas em segurança da informação e pesquisadores de threat intelligence para analisar os vetores de ataque mais comuns.",
-        veiculo: "TecMundo",
-        da: 81,
-        prazo: "4d 6h",
-        prazoClass: "soon",
-        categoria: "Tecnologia",
-        atribuicao: "Citação"
-    },
-    {
-        titulo: "Gastronomia brasileira no exterior: chefs que estão conquistando o mundo",
-        descricao: "Matéria sobre chefs brasileiros que comandam restaurantes premiados fora do país. Busco chefs, críticos gastronômicos e pesquisadores de cultura alimentar para uma análise do soft power gastronômico brasileiro.",
-        veiculo: "Metrópoles",
-        da: 83,
-        prazo: "11d 4h",
-        prazoClass: "normal",
-        categoria: "Cultura",
-        atribuicao: "Citação + Foto"
-    },
-    {
-        titulo: "Seleção Brasileira: preparação para a Copa 2026",
-        descricao: "Cobertura especial da preparação da Seleção para a Copa do Mundo. Procuro analistas táticos, preparadores físicos, jornalistas esportivos e ex-jogadores para análise do elenco e das chances do Brasil.",
-        veiculo: "GE (Globo Esporte)",
-        da: 90,
-        prazo: "20d 8h",
-        prazoClass: "normal",
-        categoria: "Esportes",
-        atribuicao: "Citação + Vídeo"
-    },
-    {
-        titulo: "Energia solar descentralizada: o boom das usinas residenciais",
-        descricao: "Reportagem sobre a explosão da geração distribuída solar no Brasil. Busco engenheiros de energia, economistas do setor elétrico e fabricantes de painéis para discutir os impactos na matriz energética e no bolso do consumidor.",
-        veiculo: "Folha de S.Paulo",
-        da: 93,
-        prazo: "6d 11h",
-        prazoClass: "normal",
-        categoria: "Sustentabilidade",
-        atribuicao: "Citação + Link"
-    },
-    {
-        titulo: "Saúde mental infantil: aumento de diagnósticos de TDAH e ansiedade",
-        descricao: "Série sobre o crescimento de diagnósticos de transtornos mentais em crianças e adolescentes brasileiros. Procuro neuropediatras, psicólogos infantis e pesquisadores para analisar causas e tratamentos.",
-        veiculo: "Veja",
-        da: 90,
-        prazo: "8d 5h",
-        prazoClass: "normal",
-        categoria: "Saúde",
+    { nome: "Burson Brasil", porte: "G
