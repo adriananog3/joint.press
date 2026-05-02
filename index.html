@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joint Press â Conectando Especialistas Ã  Imprensa Brasileira</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A9B8E;
+            --primary-dark: #077A6F;
+            --primary-light: #E0F5F3;
+            --accent: #1B6FA8;
+            --accent-light: #E3F0FA;
+            --dark: #1A2332;
+            --dark-700: #2D3A4B;
+            --dark-500: #4A5568;
+            --dark-300: #8896A6;
+            --gray-100: #F7F9FB;
+            --gray-200: #EDF1F5;
+            --gray-300: #DDE3EA;
+            --white: #FFFFFF;
+            --success: #27AE60;
+            --warning: #F2994A;
+            --danger: #EB5757;
+            --gradient-hero: linear-gradient(135deg, #0A9B8E 0%, #1B6FA8 100%);
+            --gradient-card: linear-gradient(135deg, #E0F5F3 0%, #E3F0FA 100%);
+            --shadow-sm: 0 1px 3px rgba(26,35,50,0.08);
+            --shadow-md: 0 4px 12px rgba(26,35,50,0.1);
+            --shadow-lg: 0 8px 30px rgba(26,35,50,0.12);
+            --shadow-xl: 0 20px 60px rgba(26,35,50,0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            background: var(--gray-100);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .logo span {
+            -webkit-text-fill-color: var(--dark-300);
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--dark-300);
+        }
+
+        .breadcrumb a {
+            color: var(--dark-500);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover { color: var(--primary); }
+
+        .breadcrumb .sep { color: var(--gray-300); }
+
+        .breadcrumb .current {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.2rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--gradient-hero);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--dark-500);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--dark-500);
+            padding: 0.5rem;
+        }
+
+        .btn-ghost:hover { color: var(--primary); }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .hero-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .main-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* ========== FILTER BAR ========== */
+        .filter-bar {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.7rem 1rem 0.7rem 2.8rem;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-family: inherit;
+            color: var(--dark);
+            background: var(--gray-100);
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(10,155,142,0.1);
+        }
+
+        .search-box input::placeholder { color: var(--dark-300); }
+
+        .search-box .search-icon {
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--dark-300);
+        }
+
+        .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            background: var(--white);
+            color: var(--dark-500);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.7rem;
+            background: var(--gradient-card);
+            border-radius: 20px;
+            font-size: 0.78rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .filter-tag:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .filter-tag.selected {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ========== TABLE ========== */
+        .table-container {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr 180px 100px 100px 120px;
+            padding: 0.85rem 1.5rem;
+            background: var(--gray-100);
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--dark-500);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .table-header span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+
+        .table-header span:hover { color: var(--primary); }
+
+        .question-row {
+            display: grid;
+            grid-template-columns: 1fr 180px 100px 100px 120px;
+            padding: 1.1rem 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            align-items: start;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+
+        .question-row:hover {
+            background: var(--primary-light);
+        }
+
+        .question-row:last-child { border-bottom: none; }
+
+        .question-text {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: var(--dark);
+            padding-right: 1.5rem;
+        }
+
+        .question-text strong {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .question-text .excerpt {
+            color: var(--dark-500);
+            font-size: 0.85rem;
+        }
+
+        .question-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .publication-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.65rem;
+            background: var(--gray-100);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--dark-700);
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid var(--gray-200);
+        }
+
+        .publication-badge:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .publication-badge .pub-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .deadline {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .deadline.urgent { color: var(--danger); }
+        .deadline.soon { color: var(--warning); }
+        .deadline.normal { color: var(--success); }
+
+        .da-score {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-700);
+        }
+
+        .da-bar {
+            width: 50px;
+            height: 4px;
+            background: var(--gray-200);
+            border-radius: 2px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .da-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-answer {
+            padding: 0.4rem 0.9rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-answer:hover {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-save {
+            padding: 0.4rem 0.6rem;
+            background: transparent;
+            color: var(--dark-300);
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-save:hover {
+            color: var(--warning);
+            border-color: var(--warning);
+        }
+
+        /* ========== PAGINATION ========== */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: var(--gray-100);
+            border-top: 1px solid var(--gray-200);
+            font-size: 0.82rem;
+            color: var(--dark-500);
+        }
+
+        .pagination-info { font-weight: 500; }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .page-btn {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            background: var(--white);
+            color: var(--dark-500);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.8rem;
+        }
+
+        .page-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .page-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            margin-top: 3rem;
+            background: var(--gradient-hero);
+            border-radius: var(--radius-xl);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: white;
+            color: var(--primary-dark);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            margin-top: 3rem;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--gray-200);
+            background: var(--white);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-brand .logo {
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--dark-500);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--dark-500);
+            text-decoration: none;
+            padding: 0.2rem 0;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: var(--primary); }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 1.5rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            color: var(--dark-300);
+        }
+
+        /* ========== SIDEBAR ========== */
+        .layout {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: var(--white);
+            border-right: 1px solid var(--gray-200);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 64px;
+            height: calc(100vh - 64px);
+            overflow-y: auto;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .sidebar-section {
+            padding: 0 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--dark-300);
+            margin-bottom: 0.6rem;
+            padding: 0 0.5rem;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: var(--dark-500);
+            text-decoration: none;
+            transition: all 0.15s;
+            font-weight: 400;
+        }
+
+        .sidebar-link:hover {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .sidebar-link.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .sidebar-link svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-link .count {
+            margin-left: auto;
+            font-size: 0.72rem;
+            background: var(--gray-200);
+            padding: 0.1rem 0.45rem;
+            border-radius: 10px;
+            color: var(--dark-300);
+            font-weight: 600;
+        }
+
+        .content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* ========== MOBILE TOGGLE ========== */
+        .sidebar-toggle {
+            display: none;
+            padding: 0.5rem;
+            background: transparent;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            color: var(--dark-500);
+        }
+
+        .sidebar-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .table-header,
+            .question-row {
+                grid-template-columns: 1fr 150px 80px 120px;
+            }
+            .table-header span:nth-child(4),
+            .question-row > *:nth-child(4) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                z-index: 99;
+                transform: translateX(-100%);
+                box-shadow: var(--shadow-xl);
+            }
+
+            .sidebar.open { transform: translateX(0); }
+
+            .sidebar-toggle { display: flex; }
+
+            .table-header { display: none; }
+
+            .question-row {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+                padding: 1rem;
+            }
+
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 0.95rem; }
+
+            .hero-stats { gap: 1.5rem; }
+            .hero-stat-number { font-size: 1.4rem; }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .navbar { padding: 0 1rem; }
+            .breadcrumb { display: none; }
+
+            .pagination {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .filter-row { flex-direction: column; }
+            .search-box { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 2rem 1rem; }
+            .hero-stats { flex-direction: column; gap: 0.75rem; }
+            .footer-content { grid-template-columns: 1fr; }
+            .cta-section { padding: 2rem 1.5rem; }
+            .cta-section h2 { font-size: 1.5rem; }
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-row { animation: fadeInUp 0.3s ease-out; }
+
+        .question-row:nth-child(2) { animation-delay: 0.05s; }
+        .question-row:nth-child(3) { animation-delay: 0.1s; }
+        .question-row:nth-child(4) { animation-delay: 0.15s; }
+        .question-row:nth-child(5) { animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar">
+    <div class="navbar-left">
+        <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        <a href="#" class="logo">Joint<span> Press</span></a>
+        <div class="breadcrumb">
+            <a href="#">Painel</a>
+            <span class="sep">/</span>
+            <span class="current">Pautas</span>
+        </div>
+    </div>
+    <div class="navbar-right">
+        <button class="btn btn-outline" onclick="scrollToCTA()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Cadastrar Pauta
+        </button>
+        <button class="btn btn-primary">Sou Especialista</button>
+        <div class="avatar" title="Minha Conta">A</div>
+    </div>
+</nav>
+
+<!-- ========== LAYOUT ========== -->
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">Menu Principal</div>
+            <a href="#" class="sidebar-link active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                Pautas Abertas
+                <span class="count" id="total-count">842</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                Salvas
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                Respondidas
+                <span class="count">38</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Publicadas
+                <span class="count">15</span>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Categorias Populares</div>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('Economia')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                Economia e FinanÃ§as
+                <span class="count">156</span>
+            </a>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('Tecnologia')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                Tecnologia e IA
+                <span class="count">98</span>
+            </a>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('SaÃºde')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                SaÃºde e Bem-Estar
+                <span class="count">87</span>
+            </a>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('PolÃ­tica')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11"/></svg>
+                PolÃ­tica e Governo
+                <span class="count">74</span>
+            </a>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('Agro')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c-4-3.5-8-7-8-11a8 8 0 0116 0c0 4-4 7.5-8 11z"/></svg>
+                AgronegÃ³cio
+                <span class="count">63</span>
+            </a>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('Direito')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7l9-4 9 4M3 7v4l9 4 9-4V7"/></svg>
+                Direito e LegislaÃ§Ã£o
+                <span class="count">52</span>
+            </a>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('EducaÃ§Ã£o')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                EducaÃ§Ã£o
+                <span class="count">41</span>
+            </a>
+            <a href="#" class="sidebar-link" onclick="filterByCategory('Sustentabilidade')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                Sustentabilidade
+                <span class="count">35</span>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">VeÃ­culos em Destaque</div>
+            <a href="#" class="sidebar-link">
+                <span class="pub-dot" style="width:8px;height:8px;border-radius:50%;background:var(--primary);display:inline-block;flex-shrink:0;"></span>
+                Folha de S.Paulo
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="pub-dot" style="width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0;"></span>
+                G1 / Globo
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="pub-dot" style="width:8px;height:8px;border-radius:50%;background:var(--warning);display:inline-block;flex-shrink:0;"></span>
+                Valor EconÃ´mico
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="pub-dot" style="width:8px;height:8px;border-radius:50%;background:var(--danger);display:inline-block;flex-shrink:0;"></span>
+                EstadÃ£o
+            </a>
+        </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <div class="content-area">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            </div>
+            <h1>Pautas Abertas</h1>
+            <p>Responda perguntas de jornalistas e tenha a chance de ser citado nas maiores publicaÃ§Ãµes do Brasil. Suas respostas serÃ£o avaliadas pela equipe editorial de cada veÃ­culo.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number" id="stat-pautas">842</div>
+                    <div class="hero-stat-label">Pautas Ativas</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">127</div>
+                    <div class="hero-stat-label">VeÃ­culos Parceiros</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">3.2K</div>
+                    <div class="hero-stat-label">Especialistas</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">89%</div>
+                    <div class="hero-stat-label">Taxa de PublicaÃ§Ã£o</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+
+            <!-- FILTER BAR -->
+            <div class="filter-bar">
+                <div class="filter-row">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                        <input type="text" id="searchInput" placeholder="Buscar por tema, veÃ­culo ou palavra-chave..." oninput="filterQuestions()">
+                    </div>
+                    <button class="filter-btn" id="btnCategories" onclick="toggleCategories()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                        Categorias
+                    </button>
+                    <button class="filter-btn" onclick="toggleFilters()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                        Filtros
+                    </button>
+                    <select class="filter-btn" id="sortSelect" onchange="sortQuestions()" style="appearance: auto; -webkit-appearance: auto;">
+                        <option value="deadline">Prazo</option>
+                        <option value="da">Autoridade</option>
+                        <option value="recent">Recentes</option>
+                    </select>
+                </div>
+                <div class="filter-tags" id="categoryTags">
+                    <span class="filter-tag selected" onclick="filterByCategory('Todas')">Todas</span>
+                    <span class="filter-tag" onclick="filterByCategory('Economia')">Economia</span>
+                    <span class="filter-tag" onclick="filterByCategory('Tecnologia')">Tecnologia</span>
+                    <span class="filter-tag" onclick="filterByCategory('SaÃºde')">SaÃºde</span>
+                    <span class="filter-tag" onclick="filterByCategory('PolÃ­tica')">PolÃ­tica</span>
+                    <span class="filter-tag" onclick="filterByCategory('Agro')">Agro</span>
+                    <span class="filter-tag" onclick="filterByCategory('Direito')">Direito</span>
+                    <span class="filter-tag" onclick="filterByCategory('EducaÃ§Ã£o')">EducaÃ§Ã£o</span>
+                    <span class="filter-tag" onclick="filterByCategory('Sustentabilidade')">Sustentabilidade</span>
+                    <span class="filter-tag" onclick="filterByCategory('Cultura')">Cultura</span>
+                    <span class="filter-tag" onclick="filterByCategory('Esportes')">Esportes</span>
+                    <span class="filter-tag" onclick="filterByCategory('Startups')">Startups</span>
+                    <span class="filter-tag" onclick="filterByCategory('ImobiliÃ¡rio')">ImobiliÃ¡rio</span>
+                </div>
+            </div>
+
+            <!-- TABLE -->
+            <div class="table-container">
+                <div class="table-header">
+                    <span onclick="sortQuestions('question')">Pauta / Pergunta â</span>
+                    <span onclick="sortQuestions('publication')">VeÃ­culo â</span>
+                    <span onclick="sortQuestions('deadline')">Prazo â</span>
+                    <span>DA</span>
+                    <span>AÃ§Ãµes</span>
+                </div>
+
+                <div id="questionsContainer">
+                    <!-- Rows are injected via JS -->
+                </div>
+
+                <div class="pagination">
+                    <div class="pagination-info">
+                        Mostrando <strong>1â10</strong> de <strong id="filteredCount">842</strong> pautas
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="page-btn" disabled>Â«</button>
+                        <button class="page-btn" disabled>â¹</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">...</button>
+                        <button class="page-btn">85</button>
+                        <button class="page-btn">âº</button>
+                        <button class="page-btn">Â»</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA SECTION -->
+            <section class="cta-section" id="cta">
+                <h2>Sua expertise merece visibilidade</h2>
+                <p>Cadastre-se como especialista e receba pautas alinhadas ao seu perfil diretamente no seu e-mail. Gratuito para sempre.</p>
+                <a href="#" class="cta-btn">
+                    Criar Minha Conta GrÃ¡tis
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="#" class="logo">Joint<span> Press</span></a>
+            <p>A plataforma que conecta especialistas Ã  imprensa brasileira. Ganhe visibilidade respondendo perguntas de jornalistas dos maiores veÃ­culos do paÃ­s.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Plataforma</h4>
+            <a href="#">Pautas Abertas</a>
+            <a href="#">Como Funciona</a>
+            <a href="#">Para Jornalistas</a>
+            <a href="#">Para Assessorias</a>
+            <a href="#">Planos e PreÃ§os</a>
+        </div>
+        <div class="footer-col">
+            <h4>Recursos</h4>
+            <a href="#">Blog</a>
+            <a href="#">Guia do Especialista</a>
+            <a href="#">Cases de Sucesso</a>
+            <a href="#">API para RedaÃ§Ãµes</a>
+            <a href="#">Central de Ajuda</a>
+        </div>
+        <div class="footer-col">
+            <h4>Empresa</h4>
+            <a href="#">Sobre NÃ³s</a>
+            <a href="#">Trabalhe Conosco</a>
+            <a href="#">Imprensa</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">PolÃ­tica de Privacidade</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Joint Press â Todos os direitos reservados</span>
+        <span>Feito com dedicaÃ§Ã£o para a imprensa brasileira</span>
+    </div>
+</footer>
+
+<script>
+// ============================================================
+// BANCO DE DADOS â VEÃCULOS DE IMPRENSA BRASILEIROS
+// ============================================================
+const veiculos = [
+    // --- JORNAIS DE GRANDE CIRCULAÃÃO ---
+    { nome: "Folha de S.Paulo", tipo: "Jornal", da: 93, cidade: "SÃ£o Paulo", grupo: "Grupo Folha" },
+    { nome: "O Globo", tipo: "Jornal", da: 92, cidade: "Rio de Janeiro", grupo: "Grupo Globo" },
+    { nome: "O Estado de S. Paulo (EstadÃ£o)", tipo: "Jornal", da: 91, cidade: "SÃ£o Paulo", grupo: "Grupo Estado" },
+    { nome: "Valor EconÃ´mico", tipo: "Jornal", da: 89, cidade: "SÃ£o Paulo", grupo: "Grupo Globo" },
+    { nome: "Correio Braziliense", tipo: "Jornal", da: 82, cidade: "BrasÃ­lia", grupo: "DiÃ¡rios Associados" },
+    { nome: "Zero Hora", tipo: "Jornal", da: 78, cidade: "Porto Alegre", grupo: "Grupo RBS" },
+    { nome: "Gazeta do Povo", tipo: "Jornal", da: 80, cidade: "Curitiba", grupo: "Independente" },
+    { nome: "O Dia", tipo: "Jornal", da: 73, cidade: "Rio de Janeiro", grupo: "Independente" },
+    { nome: "DiÃ¡rio do Nordeste", tipo: "Jornal", da: 72, cidade: "Fortaleza", grupo: "Grupo Edson Queiroz" },
+    { nome: "A Tarde", tipo: "Jornal", da: 70, cidade: "Salvador", grupo: "Grupo A Tarde" },
+    { nome: "Jornal do Commercio", tipo: "Jornal", da: 68, cidade: "Recife", grupo: "SJCC" },
+    { nome: "Estado de Minas", tipo: "Jornal", da: 76, cidade: "Belo Horizonte", grupo: "DiÃ¡rios Associados" },
+
+    // --- PORTAIS E VEÃCULOS DIGITAIS ---
+    { nome: "G1", tipo: "Portal", da: 95, cidade: "Nacional", grupo: "Grupo Globo" },
+    { nome: "UOL", tipo: "Portal", da: 94, cidade: "Nacional", grupo: "Grupo UOL/PagSeguro" },
+    { nome: "R7", tipo: "Portal", da: 88, cidade: "Nacional", grupo: "Grupo Record" },
+    { nome: "Terra", tipo: "Portal", da: 86, cidade: "Nacional", grupo: "TelefÃ´nica" },
+    { nome: "iG", tipo: "Portal", da: 84, cidade: "Nacional", grupo: "Independente" },
+    { nome: "MetrÃ³poles", tipo: "Portal", da: 83, cidade: "BrasÃ­lia", grupo: "Independente" },
+    { nome: "The Intercept Brasil", tipo: "Portal", da: 79, cidade: "Nacional", grupo: "First Look Media" },
+    { nome: "Nexo Jornal", tipo: "Portal", da: 77, cidade: "SÃ£o Paulo", grupo: "Independente" },
+    { nome: "Poder360", tipo: "Portal", da: 78, cidade: "BrasÃ­lia", grupo: "Independente" },
+    { nome: "InfoMoney", tipo: "Portal", da: 82, cidade: "SÃ£o Paulo", grupo: "XP Inc." },
+    { nome: "Seu Dinheiro", tipo: "Portal", da: 71, cidade: "SÃ£o Paulo", grupo: "Empiricus" },
+    { nome: "BrazilJournal", tipo: "Portal", da: 65, cidade: "SÃ£o Paulo", grupo: "Independente" },
+
+    // --- REVISTAS ---
+    { nome: "Veja", tipo: "Revista", da: 90, cidade: "Nacional", grupo: "Grupo Abril" },
+    { nome: "Ãpoca NegÃ³cios", tipo: "Revista", da: 81, cidade: "Nacional", grupo: "Grupo Globo" },
+    { nome: "Exame", tipo: "Revista", da: 85, cidade: "Nacional", grupo: "BTG Pactual" },
+    { nome: "IstoÃ", tipo: "Revista", da: 78, cidade: "Nacional", grupo: "Editora TrÃªs" },
+    { nome: "Carta Capital", tipo: "Revista", da: 76, cidade: "SÃ£o Paulo", grupo: "ConfianÃ§a" },
+    { nome: "PiauÃ­", tipo: "Revista", da: 73, cidade: "Nacional", grupo: "Grupo Folha" },
+    { nome: "Forbes Brasil", tipo: "Revista", da: 74, cidade: "Nacional", grupo: "BPP" },
+    { nome: "Bloomberg LÃ­nea Brasil", tipo: "Revista", da: 80, cidade: "Nacional", grupo: "Bloomberg" },
+
+    // --- TV ---
+    { nome: "TV Globo / GloboNews", tipo: "TV", da: 96, cidade: "Nacional", grupo: "Grupo Globo" },
+    { nome: "Record TV / Record News", tipo: "TV", da: 87, cidade: "Nacional", grupo: "Grupo Record" },
+    { nome: "SBT", tipo: "TV", da: 83, cidade: "Nacional", grupo: "Grupo Silvio Santos" },
+    { nome: "Band / BandNews TV", tipo: "TV", da: 80, cidade: "Nacional", grupo: "Grupo Bandeirantes" },
+    { nome: "CNN Brasil", tipo: "TV", da: 78, cidade: "Nacional", grupo: "Novus Media" },
+    { nome: "Jovem Pan News", tipo: "TV/RÃ¡dio", da: 77, cidade: "Nacional", grupo: "Grupo Jovem Pan" },
+
+    // --- RÃDIO ---
+    { nome: "CBN", tipo: "RÃ¡dio", da: 82, cidade: "Nacional", grupo: "Grupo Globo" },
+    { nome: "BandNews FM", tipo: "RÃ¡dio", da: 75, cidade: "Nacional", grupo: "Grupo Bandeirantes" },
+    { nome: "RÃ¡dio Eldorado", tipo: "RÃ¡dio", da: 68, cidade: "SÃ£o Paulo", grupo: "Grupo Estado" },
+
+    // --- ESPECIALIZADOS / SEGMENTADOS ---
+    { nome: "TecMundo", tipo: "Tech", da: 81, cidade: "Nacional", grupo: "Independente" },
+    { nome: "Olhar Digital", tipo: "Tech", da: 78, cidade: "Nacional", grupo: "Independente" },
+    { nome: "Canaltech", tipo: "Tech", da: 80, cidade: "Nacional", grupo: "Independente" },
+    { nome: "Startups (revista)", tipo: "Tech", da: 62, cidade: "Nacional", grupo: "Independente" },
+    { nome: "Canal Rural", tipo: "Agro", da: 72, cidade: "Nacional", grupo: "Grupo J&F" },
+    { nome: "Globo Rural", tipo: "Agro", da: 79, cidade: "Nacional", grupo: "Grupo Globo" },
+    { nome: "AgÃªncia Brasil", tipo: "AgÃªncia", da: 88, cidade: "BrasÃ­lia", grupo: "EBC" },
+    { nome: "Congresso em Foco", tipo: "PolÃ­tica", da: 74, cidade: "BrasÃ­lia", grupo: "UOL" },
+    { nome: "Jota", tipo: "Direito", da: 72, cidade: "BrasÃ­lia", grupo: "Independente" },
+    { nome: "Consultor JurÃ­dico (ConJur)", tipo: "Direito", da: 76, cidade: "SÃ£o Paulo", grupo: "Independente" },
+    { nome: "SaÃºde Business", tipo: "SaÃºde", da: 58, cidade: "Nacional", grupo: "Independente" },
+    { nome: "Drauzio Varella (Portal)", tipo: "SaÃºde", da: 70, cidade: "Nacional", grupo: "UOL" },
+    { nome: "GE (Globo Esporte)", tipo: "Esportes", da: 90, cidade: "Nacional", grupo: "Grupo Globo" },
+    { nome: "Lance!", tipo: "Esportes", da: 75, cidade: "Nacional", grupo: "Independente" },
+    { nome: "NSC Total", tipo: "Regional", da: 67, cidade: "FlorianÃ³polis", grupo: "Grupo NSC" },
+    { nome: "DiÃ¡rio de Pernambuco", tipo: "Jornal", da: 66, cidade: "Recife", grupo: "DiÃ¡rios Associados" },
+    { nome: "O Liberal", tipo: "Jornal", da: 63, cidade: "BelÃ©m", grupo: "Grupo Liberal" },
+    { nome: "AmazÃ´nia Real", tipo: "Portal", da: 55, cidade: "Manaus", grupo: "Independente" },
+];
+
+// ============================================================
+// BANCO DE DADOS â ASSESSORIAS DE IMPRENSA BRASILEIRAS
+// ============================================================
+const assessorias = [
+    { nome: "FSB ComunicaÃ§Ã£o", porte: "Grande", sede: "BrasÃ­lia/SP", clientes: "Governo, corporaÃ§Ãµes, energia" },
+    { nome: "MÃ¡quina CW (WPP)", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Multinacionais, tech, finanÃ§as" },
+    { nome: "Ideal H+K Strategies", porte: "Grande", sede: "SÃ£o Paulo", clientes: "SaÃºde, pharma, consumo" },
+    { nome: "Edelman Brasil", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Tech, finanÃ§as, ESG" },
+    { nome: "Ketchum Brasil", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Alimentos, healthcare, tech" },
+    { nome: "DFREIRE ComunicaÃ§Ã£o", porte: "Grande", sede: "SÃ£o Paulo", clientes: "FinanÃ§as, investimentos" },
+    { nome: "InPress Porter Novelli", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Consumo, tech, saÃºde" },
+    { nome: "Burson Brasil", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Corporativo, governo" },
+    { nome: "CDN ComunicaÃ§Ã£o", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Energia, infraestrutura" },
+    { nome: "S2 Publicom", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Agro, mineraÃ§Ã£o, indÃºstria" },
+    { nome: "Weber Shandwick Brasil", porte: "Grande", sede: "SÃ£o Paulo", clientes: "Consumo, tech" },
+    { nome: "Approach ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Tech, finanÃ§as, startups" },
+    { nome: "Sing ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "FinanÃ§as, investimentos" },
+    { nome: "Naves Coelho", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Real estate, varejo" },
+    { nome: "Riot (ex-MSLGROUP)", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Lifestyle, consumo" },
+    { nome: "ConteÃºdo ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "Belo Horizonte", clientes: "Agro, mineraÃ§Ã£o, indÃºstria" },
+    { nome: "RPM ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "FinanÃ§as, seguros, saÃºde" },
+    { nome: "JeffreyGroup", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Tech, multinacionais LATAM" },
+    { nome: "Textual ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "Porto Alegre", clientes: "IndÃºstria, cooperativas" },
+    { nome: "Binder ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "SaÃºde, pharma" },
+    { nome: "Motim (ex-MOTIM)", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Startups, tech, venture capital" },
+    { nome: "BPool / Rede Assessorias", porte: "Plataforma", sede: "Nacional", clientes: "Marketplace de assessorias" },
+    { nome: "AgÃªncia Guru", porte: "Pequeno", sede: "SÃ£o Paulo", clientes: "E-commerce, SaaS" },
+    { nome: "Race ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Tech, finanÃ§as, saÃºde" },
+    { nome: "Loures ComunicaÃ§Ã£o", porte: "Grande", sede: "SÃ£o Paulo/BrasÃ­lia", clientes: "Governo, institucional" },
+    { nome: "LVBA ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "FinanÃ§as, investimentos" },
+    { nome: "Trama ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo/Curitiba", clientes: "Varejo, educaÃ§Ã£o, tech" },
+    { nome: "Giusti ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "JurÃ­dico, corporativo" },
+    { nome: "Pimenta ComunicaÃ§Ã£o", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Alimentos, agro, consumo" },
+    { nome: "ADS ComunicaÃ§Ã£o Corporativa", porte: "MÃ©dio", sede: "SÃ£o Paulo", clientes: "Mercado imobiliÃ¡rio, energia" },
+];
+
+// ============================================================
+// BANCO DE DADOS â PAUTAS (PERGUNTAS)
+// ============================================================
+const pautas = [
+    {
+        titulo: "Impacto da nova taxa Selic nos investimentos de renda fixa",
+        descricao: "Procuro economistas e planejadores financeiros para comentar como a nova decisÃ£o do Copom afeta a rentabilidade de CDBs, Tesouro Direto e fundos DI. Quero entender cenÃ¡rios para o segundo semestre e recomendaÃ§Ãµes para o investidor pessoa fÃ­sica.",
+        veiculo: "Valor EconÃ´mico",
+        da: 89,
+        prazo: "2d 5h",
+        prazoClass: "urgent",
+        categoria: "Economia",
+        atribuicao: "CitaÃ§Ã£o + Link"
+    },
+    {
+        titulo: "IA generativa na redaÃ§Ã£o: como os veÃ­culos brasileiros estÃ£o usando",
+        descricao: "Estou escrevendo uma reportagem sobre o uso de inteligÃªncia artificial generativa em redaÃ§Ãµes brasileiras. Busco editores, diretores de conteÃºdo e CTOs de veÃ­culos de mÃ­dia para entrevista sobre adoÃ§Ã£o, desafios Ã©ticos e impacto na produtividade editorial.",
+        veiculo: "Folha de S.Paulo",
+        da: 93,
+        prazo: "5d 3h",
+        prazoClass: "soon",
+        categoria: "Tecnologia",
+        atribuicao: "CitaÃ§Ã£o"
+    },
+    {
+        titulo: "Burnout entre profissionais de saÃºde pÃ³s-pandemia",
+        descricao: "MatÃ©ria sobre saÃºde mental dos profissionais de saÃºde. Procuro psiquiatras, psicÃ³logos organizacionais e gestores hospitalares que possam falar sobre os nÃºmeros atuais de burnout, afastamentos e estratÃ©gias de prevenÃ§Ã£o nas instituiÃ§Ãµes.",
+        veiculo: "G1",
+        da: 95,
+        prazo: "3d 8h",
+        prazoClass: "soon",
+        categoria: "SaÃºde",
+        atribuicao: "CitaÃ§Ã£o + Foto"
+    },
+    {
+        titulo: "Reforma tributÃ¡ria: impactos para o agronegÃ³cio",
+        descricao: "Preparando reportagem especial sobre como a regulamentaÃ§Ã£o da reforma tributÃ¡ria vai afetar o setor agropecuÃ¡rio. Busco tributaristas especializados em agro, lÃ­deres de associaÃ§Ãµes rurais e economistas agrÃ­colas.",
+        veiculo: "Globo Rural",
+        da: 79,
+        prazo: "7d 12h",
+        prazoClass: "normal",
+        categoria: "Agro",
+        atribuicao: "CitaÃ§Ã£o + Link"
+    },
+    {
+        titulo: "Startups brasileiras que estÃ£o atraindo investimento estrangeiro em 2026",
+        descricao: "SÃ©rie sobre o ecossistema de venture capital no Brasil. Procuro fundadores que captaram rodadas com investidores internacionais, VCs com tese no Brasil e analistas do setor para mapear tendÃªncias e setores mais aquecidos.",
+        veiculo: "Exame",
+        da: 85,
+        prazo: "10d 6h",
+        prazoClass: "normal",
+        categoria: "Startups",
+        atribuicao: "CitaÃ§Ã£o + Link + Foto"
+    },
+    {
+        titulo: "Nova lei de proteÃ§Ã£o de dados e seus impactos nas empresas",
+        descricao: "Artigo sobre as recentes mudanÃ§as regulatÃ³rias da LGPD e as penalizaÃ§Ãµes aplicadas pela ANPD. Busco advogados especializados em proteÃ§Ã£o de dados, DPOs e consultores de compliance digital para entrevista.",
+        veiculo: "Consultor JurÃ­dico (ConJur)",
+        da: 76,
+        prazo: "4d 10h",
+        prazoClass: "soon",
+        categoria: "Direito",
+        atribuicao: "CitaÃ§Ã£o + Bio"
+    },
+    {
+        titulo: "Mercado imobiliÃ¡rio de luxo em SÃ£o Paulo bate recorde",
+        descricao: "Reportagem sobre o aquecimento do mercado de imÃ³veis de alto padrÃ£o na capital paulista. Procuro corretores especializados em imÃ³veis de luxo, economistas do setor e arquitetos que trabalham com projetos acima de R$ 5 milhÃµes.",
+        veiculo: "EstadÃ£o",
+        da: 91,
+        prazo: "6d 4h",
+        prazoClass: "normal",
+        categoria: "ImobiliÃ¡rio",
+        atribuicao: "CitaÃ§Ã£o"
+    },
+    {
+        titulo: "Desmatamento na AmazÃ´nia: dados de 2026 e perspectivas",
+        descricao: "MatÃ©ria investigativa sobre os nÃºmeros mais recentes de desmatamento na AmazÃ´nia Legal. Busco pesquisadores do INPE, biÃ³logos, especialistas em sensoriamento remoto e ativistas ambientais para anÃ¡lise dos dados.",
+        veiculo: "O Globo",
+        da: 92,
+        prazo: "8d 7h",
+        prazoClass: "normal",
+        categoria: "Sustentabilidade",
+        atribuicao: "CitaÃ§Ã£o + Link"
+    },
+    {
+        titulo: "EducaÃ§Ã£o hÃ­brida: o que deu certo e o que fracassou",
+        descricao: "Estou produzindo um especial sobre educaÃ§Ã£o pÃ³s-pandemia. Preciso de diretores de escola, pesquisadores em educaÃ§Ã£o e EdTechs para falar sobre resultados concretos do modelo hÃ­brido implementado nos Ãºltimos anos.",
+        veiculo: "Nexo Jornal",
+        da: 77,
+        prazo: "12d 9h",
+        prazoClass: "normal",
+        categoria: "EducaÃ§Ã£o",
+        atribuicao: "CitaÃ§Ã£o + Link + Bio"
+    },
+    {
+        titulo: "EleiÃ§Ãµes municipais: anÃ¡lise das campanhas digitais mais eficazes",
+        descricao: "Reportagem sobre marketing polÃ­tico digital nas eleiÃ§Ãµes municipais. Procuro cientistas polÃ­ticos, especialistas em marketing digital e pesquisadores que analisaram as estratÃ©gias de campanha nas redes sociais dos candidatos.",
+        veiculo: "Poder360",
+        da: 78,
+        prazo: "1d 3h",
+        prazoClass: "urgent",
+        categoria: "PolÃ­tica",
+        atribuicao: "CitaÃ§Ã£o"
+    },
+    {
+        titulo: "Crise na pecuÃ¡ria: como o produtor estÃ¡ se adaptando",
+        descricao: "SÃ©rie sobre os desafios do setor pecuÃ¡rio brasileiro frente Ã s exigÃªncias de sustentabilidade e rastreabilidade. Busco pecuaristas, zootecnistas e pesquisadores da Embrapa para entrevista sobre inovaÃ§Ã£o no campo.",
+        veiculo: "Canal Rural",
+        da: 72,
+        prazo: "9d 5h",
+        prazoClass: "normal",
+        categoria: "Agro",
+        atribuicao: "CitaÃ§Ã£o + Foto"
+    },
+    {
+        titulo: "Fintechs de crÃ©dito: como estÃ£o desafiando os bancos tradicionais",
+        descricao: "MatÃ©ria sobre a nova geraÃ§Ã£o de fintechs de crÃ©dito pessoal e empresarial. Procuro CEOs de fintechs, analistas do Banco Central e especialistas em regulaÃ§Ã£o financeira para mapear o cenÃ¡rio competitivo.",
+        veiculo: "InfoMoney",
+        da: 82,
+        prazo: "5d 8h",
+        prazoClass: "soon",
+        categoria: "Economia",
+        atribuicao: "CitaÃ§Ã£o + Link"
+    },
+    {
+        titulo: "O futuro do trabalho remoto nas grandes empresas brasileiras",
+        descricao: "Pesquisa sobre a polÃ­tica de trabalho remoto e hÃ­brido das 100 maiores empresas do Brasil. Busco diretores de RH, especialistas em futuro do trabalho e pesquisadores organizacionais para entender as tendÃªncias.",
+        veiculo: "Ãpoca NegÃ³cios",
+        da: 81,
+        prazo: "15d 2h",
+        prazoClass: "normal",
+        categoria: "Economia",
+        atribuicao: "CitaÃ§Ã£o + Link + Bio"
+    },
+    {
+        titulo: "Cybersecurity: ataques a empresas brasileiras crescem 40%",
+        descricao: "Reportagem sobre o aumento de ciberataques a empresas brasileiras. Procuro CISOs, especialistas em seguranÃ§a da informaÃ§Ã£o e pesquisadores de threat intelligence para analisar os vetores de ataque mais comuns.",
+        veiculo: "TecMundo",
+        da: 81,
+        prazo: "4d 6h",
+        prazoClass: "soon",
+        categoria: "Tecnologia",
+        atribuicao: "CitaÃ§Ã£o"
+    },
+    {
+        titulo: "Gastronomia brasileira no exterior: chefs que estÃ£o conquistando o mundo",
+        descricao: "MatÃ©ria sobre chefs brasileiros que comandam restaurantes premiados fora do paÃ­s. Busco chefs, crÃ­ticos gastronÃ´micos e pesquisadores de cultura alimentar para uma anÃ¡lise do soft power gastronÃ´mico brasileiro.",
+        veiculo: "MetrÃ³poles",
+        da: 83,
+        prazo: "11d 4h",
+        prazoClass: "normal",
+        categoria: "Cultura",
+        atribuicao: "CitaÃ§Ã£o + Foto"
+    },
+    {
+        titulo: "SeleÃ§Ã£o Brasileira: preparaÃ§Ã£o para a Copa 2026",
+        descricao: "Cobertura especial da preparaÃ§Ã£o da SeleÃ§Ã£o para a Copa do Mundo. Procuro analistas tÃ¡ticos, preparadores fÃ­sicos, jornalistas esportivos e ex-jogadores para anÃ¡lise do elenco e das chances do Brasil.",
+        veiculo: "GE (Globo Esporte)",
+        da: 90,
+        prazo: "20d 8h",
+        prazoClass: "normal",
+        categoria: "Esportes",
+        atribuicao: "CitaÃ§Ã£o + VÃ­deo"
+    },
+    {
+        titulo: "Energia solar descentralizada: o boom das usinas residenciais",
+        descricao: "Reportagem sobre a explosÃ£o da geraÃ§Ã£o distribuÃ­da solar no Brasil. Busco engenheiros de energia, economistas do setor elÃ©trico e fabricantes de painÃ©is para discutir os impactos na matriz energÃ©tica e no bolso do consumidor.",
+        veiculo: "Folha de S.Paulo",
+        da: 93,
+        prazo: "6d 11h",
+        prazoClass: "normal",
+        categoria: "Sustentabilidade",
+        atribuicao: "CitaÃ§Ã£o + Link"
+    },
+    {
+        titulo: "SaÃºde mental infantil: aumento de diagnÃ³sticos de TDAH e ansiedade",
+        descricao: "SÃ©rie sobre o crescimento de diagnÃ³sticos de transtornos mentais em crianÃ§as e adolescentes brasileiros. Procuro neuropediatras, psicÃ³logos infantis e pesquisadores para analisar causas e tratamentos.",
+        veiculo: "Veja",
+        da: 90,
+        prazo: "8d 5h",
+        prazoClass: "normal",
+        categoria: "SaÃºde",
+        atribuicao: "CitaÃ§Ã£o"
+    },
+    {
+        titulo: "O papel das assessorias de imprensa na era da IA",
+        descricao: "Artigo especial sobre como as assessorias de comunicaÃ§Ã£o estÃ£o se reinventando com inteligÃªncia artificial. Busco diretores de assessorias, profissionais de RP e pesquisadores de comunicaÃ§Ã£o corporativa.",
+        veiculo: "Meio & Mensagem",
+        da: 72,
+        prazo: "13d 7h",
+        prazoClass: "normal",
+        categoria: "Tecnologia",
+        atribuicao: "CitaÃ§Ã£o + Bio"
+    },
+    {
+        titulo: "PIX internacional: Brasil exportando tecnologia financeira",
+        descricao: "MatÃ©ria sobre a internacionalizaÃ§Ã£o do PIX e o interesse de outros paÃ­ses no sistema de pagamentos instantÃ¢neos brasileiro. Busco economistas do Banco Central, fintechs e analistas de sistemas de pagamento globais.",
+        veiculo: "Bloomberg LÃ­nea Brasil",
+        da: 80,
+        prazo: "3d 9h",
+        prazoClass: "soon",
+        categoria: "Economia",
+        atribuicao: "CitaÃ§Ã£o + Link"
+    },
+];
+
+// ============================================================
+// LÃGICA DE RENDERIZAÃÃO E FILTROS
+// ============================================================
+let currentCategory = 'Todas';
+let currentSearch = '';
+
+function renderQuestions(data) {
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+
+    data.forEach((p, i) => {
+        const row = document.createElement('div');
+        row.className = 'question-row';
+        row.style.animationDelay = `${i * 0.03}s`;
+        row.innerHTML = `
+            <div class="question-text">
+                <strong>${p.titulo}</strong>
+                <div class="excerpt">${p.descricao.substring(0, 120)}...</div>
+            </div>
+            <div class="question-meta">
+                <a href="#" class="publication-badge">
+                    <span class="pub-dot"></span>
+                    ${p.veiculo}
+                </a>
+            </div>
+            <div>
+                <span class="deadline ${p.prazoClass}">${p.prazo}</span>
+            </div>
+            <div>
+                <div class="da-score">${p.da}</div>
+                <div class="da-bar"><div class="da-bar-fill" style="width:${p.da}%"></div></div>
+            </div>
+            <div class="actions-cell">
+                <button class="btn-answer" onclick="event.stopPropagation()">Responder</button>
+                <button class="btn-save" onclick="event.stopPropagation()" title="Salvar">&#9734;</button>
+            </div>
+        `;
+        container.appendChild(row);
+    });
+
+    document.getElementById('filteredCount').textContent = data.length;
+}
+
+function filterQuestions() {
+    currentSearch = document.getElementById('searchInput').value.toLowerCase();
+    applyFilters();
+}
+
+function filterByCategory(cat) {
+    currentCategory = cat;
+    // Update tag styling
+    document.querySelectorAll('.filter-tag').forEach(tag => {
+        tag.classList.toggle('selected', tag.textContent.trim() === cat);
+    });
+    applyFilters();
+}
+
+function applyFilters() {
+    let filtered = pautas;
+
+    if (currentCategory !== 'Todas') {
+        filtered = filtered.filter(p => p.categoria === currentCategory);
+    }
+
+    if (currentSearch) {
+        filtered = filtered.filter(p =>
+            p.titulo.toLowerCase().includes(currentSearch) ||
+            p.descricao.toLowerCase().includes(currentSearch) ||
+            p.veiculo.toLowerCase().includes(currentSearch) ||
+            p.categoria.toLowerCase().includes(currentSearch)
+        );
+    }
+
+    renderQuestions(filtered);
+}
+
+function sortQuestions(by) {
+    const select = document.getElementById('sortSelect');
+    const sortBy = by || select.value;
+
+    pautas.sort((a, b) => {
+        if (sortBy === 'da') return b.da - a.da;
+        if (sortBy === 'deadline') {
+            const parseTime = (t) => {
+                let h = 0;
+                const months = t.match(/(\d+)\s*month/);
+                const days = t.match(/(\d+)d/);
+                const hours = t.match(/(\d+)h/);
+                if (months) h += parseInt(months[1]) * 720;
+                if (days) h += parseInt(days[1]) * 24;
+                if (hours) h += parseInt(hours[1]);
+                return h;
+            };
+            return parseTime(a.prazo) - parseTime(b.prazo);
+        }
+        return 0;
+    });
+
+    applyFilters();
+}
+
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+}
+
+function toggleCategories() {
+    const tags = document.getElementById('categoryTags');
+    tags.style.display = tags.style.display === 'none' ? 'flex' : tags.style.display === '' ? 'none' : 'flex';
+}
+
+function toggleFilters() {
+    // Placeholder for advanced filter modal
+    alert('Filtros avanÃ§ados: Tipo de atribuiÃ§Ã£o, Prazo mÃ­nimo, DA mÃ­nimo, RegiÃ£o do veÃ­culo');
+}
+
+function scrollToCTA() {
+    document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ============================================================
+// INICIALIZAÃÃO
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    renderQuestions(pautas);
+});
+</script>
+
+</bo
